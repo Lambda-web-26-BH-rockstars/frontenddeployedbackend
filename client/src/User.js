@@ -33,6 +33,15 @@ const User = ({user}) => {
     setEditing(!editing)
   }
 
+  const deleteHandler = () => {
+    axios.delete(`${api}/${user.id}`)
+      .then(res=> console.log(res))
+      .catch(err => console.log(err))
+      .finally(() => {
+        resetHandler()
+      })
+  }
+
   return (
     <>
       <article>
@@ -64,7 +73,7 @@ const User = ({user}) => {
           <button
             onClick={
               ()=> {
-                console.log("delete", user.name, user.id)
+                deleteHandler()
               }
             }
           >
