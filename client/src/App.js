@@ -1,13 +1,24 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios'
 
 function App() {
+  const [api] = useState('https://zakmayfield-api3.herokuapp.com/api/users')
+  const [getDb, setGetDb] = useState({})
 
-  const [envfile] = useState(process.env.STORE)
+  useEffect(()=>{
+    axios.get(api)
+      .then(res=>{
+        console.log(res)
+      })
+      .catch(err => console.log(err))
+  },[])
 
   return (
     <>
-      <div>{JSON.parse(envfile)}</div>
-      <div></div>
+      <header></header>
+      <main>
+
+      </main> 
     </>
   );
 }
