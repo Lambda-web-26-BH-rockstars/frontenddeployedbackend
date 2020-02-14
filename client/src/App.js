@@ -32,7 +32,7 @@ function App() {
           <AddName />
         </section>
         <section>
-          {getDb.map((user, i)=> <User key={i} user={user} /> )}
+          {getDb.map((user)=> <User key={user.id} user={user} /> )}
         </section>
       </main> 
     </>
