@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import {APIContext} from './contexts/APIContext'
 import axios from 'axios'
+import './user.scss'
 
 
 const User = ({user}) => {
@@ -49,13 +50,21 @@ const User = ({user}) => {
           <form
             onSubmit={(e)=> editHandler(e)}
           >
-            <label>Edit Name</label>
             <input 
               name="name"
               value={name.name}
               onChange={(e)=>changeHandler(e)}
             />
-            <button type="submit">Edit Name</button>
+            <button type="submit">Submit Change</button>
+            <button
+            onClick={
+              ()=> {
+                editToggle()
+              }
+            }
+          >
+            Cancel Edit
+          </button>
         </form>
         ):(
         <p>{user.name}
@@ -68,7 +77,7 @@ const User = ({user}) => {
               }
             }
           >
-            Edit Name
+            Edit
           </button>
           <button
             onClick={
@@ -77,7 +86,7 @@ const User = ({user}) => {
               }
             }
           >
-            Delete User
+            Delete
           </button>
       </article>
     </>
